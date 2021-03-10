@@ -18,10 +18,10 @@ const getGameByName = async(name) => {
     }
 };
 
-const createGame = async (name,ageMin,duration,category,prototype) => {
+const createGame = async (name,ageMin,duration,category,prototype,nbPlayers,description,publisherId) => {
     try {
         const game = new Game({
-            name,ageMin,duration,category,prototype
+            name,ageMin,duration,category,prototype,nbPlayers,description,publisherId
         });
         console.log(game);
         return await game.save();
@@ -31,8 +31,26 @@ const createGame = async (name,ageMin,duration,category,prototype) => {
     }
 };
 
+const updateGame = async (informations,idGame) => {
+    try{
+        return await Game.findOneAndUpdate({_id: idGame}, {...informations, _id: idGame}, {new:true})
+    }catch (error) {
+        throw error;
+    }
+};
+
+const deleteGame = async (_id) => {
+    try{
+        return await Game.deleteOne({_id})
+    }catch (error) {
+        throw error;
+    }
+};
+
 module.exports = {
     getGameById,
     getGameByName,
     createGame,
+    updateGame,
+    deleteGame
 };
