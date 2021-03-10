@@ -10,15 +10,11 @@ module.exports = (req, res, next) => {
                     res.status(401).json({error: "Unauthorized" });
                 }
                 else{
-                    console.log({result});
-                    console.log({result : result.admin});
-                    /*if(result && result.admin){
+                    if(result && result.admin){
                         next();
                     }else{
                         res.status(401).json({error: "Unauthorized" });
-                    }*/
-                   /* req.token = result; /!* To access users information in controllers *!*/
-                    next();
+                    }
                 }
             })
         }

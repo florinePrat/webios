@@ -9,7 +9,7 @@ const gameSchema = mongoose.Schema({
     category : {type: String},
     description : {type: String},
     publisherId : {type: mongoose.Schema.Types.ObjectId, ref: 'Publisher'},
-    prototype : {type : Boolean}
+    prototypeGame : {type : Boolean}
 });
 
 module.exports = mongoose.model('Game', gameSchema);

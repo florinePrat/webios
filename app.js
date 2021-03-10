@@ -36,7 +36,7 @@ app.use("/api", require('./server/routes/authRoutes'));
 // app.use("/api", require('./server/middleware/auth'), require('./server/routes/organizerRoutes'));
 
 //All routes with retricted content pass trough the isAuth middleware to verify authentication and if have admin rights
-// app.use("/api", require('./server/middleware/admin'), require('./server/routes/adminRoutes'));
+app.use("/api", require('./server/middleware/admin'), require('./server/routes/adminRoutes'));
 
 /* Handling errors */
 app.use((req,res,next) => {
