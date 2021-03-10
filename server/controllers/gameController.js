@@ -18,10 +18,10 @@ const getGameByName = async(name) => {
     }
 };
 
-const createGame = async (name,ageMin,duration,category,prototype,nbPlayers,description,publisherId) => {
+const createGame = async (name,ageMin,duration,category,prototype,nbPlayersMin,nbPlayersMax,description,publisherId) => {
     try {
         const game = new Game({
-            name,ageMin,duration,category,prototype,nbPlayers,description,publisherId
+            name,ageMin,duration,category,prototype,nbPlayersMin,nbPlayersMax,description,publisherId
         });
         console.log(game);
         return await game.save();
