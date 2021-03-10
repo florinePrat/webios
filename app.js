@@ -20,6 +20,7 @@ db.once('open', _ => {
 db.on('error', err => {
     console.error('connection error:', err)
 });
+
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 

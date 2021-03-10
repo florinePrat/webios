@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const exhibitorSchema = mongoose.Schema({
-    name: { type: String, require: true},
+    name: { type: String},
     contacts : [{type: mongoose.Schema.Types.ObjectId, ref: 'Contact'}],
     mainContact : {type: mongoose.Schema.Types.ObjectId, ref: 'Contact'},
     booking: {type: mongoose.Schema.Types.ObjectId, ref: 'Booking'},
