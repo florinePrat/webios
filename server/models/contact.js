@@ -8,7 +8,7 @@ const contactSchema = mongoose.Schema({
     telFixe : {type : Number},
     telMobile : {type : Number},
     work : {type : String},
-    publisherId: {type: mongoose.Schema.Types.ObjectId, ref: 'Publisher'},
+    publisherId: {type: mongoose.Schema.Types.ObjectId, ref: 'Exhibitor'},
 });
 
 module.exports = mongoose.model('Contact', contactSchema);

@@ -18,10 +18,10 @@ const getAllBookingGameByFestival = async(festivalId) => {
     }
 };
 
-const createBookingGame = async (gameId,space,publisherId,qtExhib,qtSend,qtTombolat,qtDotation,putOnPlan,comment,bringByExhibitor,received,isCallback,callbackPrice,isCallbackDone) => {
+const createBookingGame = async (gameId,festivalId,publisherId,space,zone,qtExhib,qtSend,tombola,dotation,comment,putOnPlan,bringByExhibitor,received,animator,isCallback,callbackPrice,isCallbackDone) => {
     try {
         const bookingGame = new BookingGame({
-            gameId,space,publisherId,qtExhib,qtSend,qtTombolat,qtDotation,putOnPlan,comment,bringByExhibitor,received,isCallback,callbackPrice,isCallbackDone
+            gameId,festivalId,publisherId,space,zone,qtExhib,qtSend,tombola,dotation,comment,putOnPlan,bringByExhibitor,received,animator,isCallback,callbackPrice,isCallbackDone
         });
         console.log(bookingGame);
         return await bookingGame.save();

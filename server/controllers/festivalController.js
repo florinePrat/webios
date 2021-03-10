@@ -21,7 +21,7 @@ const getFestivalByName = async(name) => {
 const createFestival = async (name, current) => {
     try {
         const festival = new Festival({
-            name
+            name, current
         });
         console.log(festival);
         return await festival.save();
