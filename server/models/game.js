@@ -8,7 +8,7 @@ const gameSchema = mongoose.Schema({
     nbPlayersMax: {type: Number},
     category : {type: String},
     description : {type: String},
-    publisherId : {type: mongoose.Schema.Types.ObjectId, ref: 'Publisher'},
+    exhibitorId : {type: mongoose.Schema.Types.ObjectId, ref: 'Exhibitor'},
     prototypeGame : {type : Boolean}
 });
 

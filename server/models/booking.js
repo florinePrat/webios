@@ -7,6 +7,7 @@ const bookingSchema = mongoose.Schema({
     nbM2Space1: {type : Float32Array},
     nbM2Space2: {type : Float32Array},
     nbM2Space3: {type : Float32Array},
+    exhibitorId: {type: mongoose.Schema.Types.ObjectId, ref: 'Exhibitor'},
 });
 
 module.exports = mongoose.model('Booking', bookingSchema);

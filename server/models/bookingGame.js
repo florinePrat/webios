@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const bookingGameSchema = mongoose.Schema({
     gameId: {type: mongoose.Schema.Types.ObjectId, ref: 'Game'},
     festivalId: {type: mongoose.Schema.Types.ObjectId, ref: 'Festival'},
-    publisherId: {type: mongoose.Schema.Types.ObjectId, ref: 'Publisher'},
+    exhibitorId: {type: mongoose.Schema.Types.ObjectId, ref: 'Exhibitor'},
     space: {type: mongoose.Schema.Types.ObjectId, ref: 'Space'},
     zone: {type: String},
     qtExhib : {type: Number},
