@@ -46,10 +46,28 @@ const addContact= async (contactId,idExhibitor,mainContact) => {
     }
 };
 
+const deleteContact= async (contactId,idExhibitor) => {
+    try{
+        return await Exhibitor.findOneAndUpdate({_id: idExhibitor}, {$pull : {contacts : contactId} , _id: idExhibitor}, {new:true})
+    }catch (error) {
+        throw error;
+    }
+};
+
+const addBookingGame= async (bookingGameId,idExhibitor) => {
+    try{
+        return await Exhibitor.findOneAndUpdate({_id: idExhibitor}, {$push : {gameBookedList : bookingGameId}, _id: idExhibitor}, {new:true})
+    }catch (error) {
+        throw error;
+    }
+};
+
 module.exports = {
     getExhibitorById,
     createExhibitor,
     addGame,
     addContact,
+    deleteContact,
+    addBookingGame,
     updateExhibitor
 };
