@@ -22,16 +22,27 @@ const createContact = async (firstName,lastName,email,address,telFixe,telMobile,
     }
 };
 
+/*
 const updateContact = async ({firstName,lastName,email,address,telFixe,telMobile,work,publisherId}) => {
     try{
         return await Contact.findOneAndUpdate({_id: idContact}, {email, $push : firstName,lastName,email,address,telFixe,telMobile,work,publisherId ,_id: idContact}, {new:true})
     }catch (error) {
         throw error;
     }
+};*/
+const updateContact = async (informations,idContact) => {
+    try{
+        return await Contact.findOneAndUpdate({_id: idContact}, {...informations, _id: idContact}, {new:true})
+    }catch (error) {
+        throw error;
+    }
 };
+
+
 
 const deleteContact = async (_id) => {
     try{
+        console.log(_id)
         return await Contact.deleteOne({_id})
     }catch (error) {
         throw error;
@@ -42,4 +53,6 @@ const deleteContact = async (_id) => {
 module.exports = {
     getContactById,
     createContact,
+    updateContact,
+    deleteContact
 };

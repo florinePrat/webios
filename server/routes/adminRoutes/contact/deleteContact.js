@@ -1,13 +1,13 @@
-const GameController = require('../../../controllers/gameController');
+const ContactController = require('../../../controllers/contactController');
 
 module.exports = async (req, res) => {
     try{
-        const game = await GameController.deleteGame(req.body.gameId);
-        return res.status(200).json(game);
+        const contact = await ContactController.deleteContact(req.body.contactId);
+        return res.status(200).json(contact);
     }
     catch(e){
         return res.status(500).json({
-            error : "Impossible de supprimer ce jeu"
+            error : "Impossible de supprimer ce contact"
         });
     }
 };
