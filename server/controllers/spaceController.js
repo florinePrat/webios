@@ -26,7 +26,27 @@ const createSpace = async (name, numberOfTable, unitPriceOfTable, m2Price, festi
     }
 };
 
+const updateSpace = async (informations,idSpace) => {
+    try{
+        return await Space.findOneAndUpdate({_id: idSpace}, {...informations, _id: idSpace}, {new:true})
+    }catch (error) {
+        throw error;
+    }
+};
+
+const deleteSpace = async (_id) => {
+    try{
+        console.log(_id)
+        return await Space.deleteOne({_id})
+    }catch (error) {
+        throw error;
+    }
+};
+
+
 module.exports = {
     getSpaceById,
     createSpace,
+    updateSpace,
+    deleteSpace
 };
