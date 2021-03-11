@@ -22,6 +22,23 @@ const createContact = async (firstName,lastName,email,address,telFixe,telMobile,
     }
 };
 
+const updateContact = async ({firstName,lastName,email,address,telFixe,telMobile,work,publisherId}) => {
+    try{
+        return await Contact.findOneAndUpdate({_id: idContact}, {email, $push : firstName,lastName,email,address,telFixe,telMobile,work,publisherId ,_id: idContact}, {new:true})
+    }catch (error) {
+        throw error;
+    }
+};
+
+const deleteContact = async (_id) => {
+    try{
+        return await Contact.deleteOne({_id})
+    }catch (error) {
+        throw error;
+    }
+};
+
+
 module.exports = {
     getContactById,
     createContact,

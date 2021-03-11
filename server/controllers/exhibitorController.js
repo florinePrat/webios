@@ -38,9 +38,9 @@ const addGame = async (gameId,idExhibitor) => {
     }
 };
 
-const addContact= async (contactId,idExhibitor) => {
+const addContact= async (contactId,idExhibitor,mainContact) => {
     try{
-        return await Exhibitor.findOneAndUpdate({_id: idExhibitor}, {$push : {contacts : contactId}, _id: idExhibitor}, {new:true})
+        return await Exhibitor.findOneAndUpdate({_id: idExhibitor}, {$push : {contacts : contactId}, mainContact , _id: idExhibitor}, {new:true})
     }catch (error) {
         throw error;
     }
