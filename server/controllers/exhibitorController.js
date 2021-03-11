@@ -22,9 +22,25 @@ const createExhibitor = async ({name,contacts,mainContact,booking,present,animat
     }
 };
 
-const updateExhibitor = async ({name,contacts,mainContact,booking,present,animatorNeeded,publisher,publisherName,place,datContact1,datContact2,crSended,invoiceSended,paymentOk,statusTraking,gameList,gameBookedList,idExhibitor}) => {
+const updateExhibitor = async (informations,idExhibitor) => {
     try{
-        return await Exhibitor.findOneAndUpdate({_id: idExhibitor}, {name, $push : {contacts},mainContact,booking,present,animatorNeeded,publisher,publisherName,place,datContact1,datContact2,crSended,invoiceSended,paymentOk,statusTraking, $push: {gameList}, $push : {gameBookedList}, _id: idExhibitor}, {new:true})
+        return await Exhibitor.findOneAndUpdate({_id: idExhibitor}, {...informations, _id: idExhibitor}, {new:true})
+    }catch (error) {
+        throw error;
+    }
+};
+
+const addGame = async (gameId,idExhibitor) => {
+    try{
+        return await Exhibitor.findOneAndUpdate({_id: idExhibitor}, {$push : {gameList : gameId}, _id: idExhibitor}, {new:true})
+    }catch (error) {
+        throw error;
+    }
+};
+
+const addContact= async (contactId,idExhibitor) => {
+    try{
+        return await Exhibitor.findOneAndUpdate({_id: idExhibitor}, {$push : {contacts : contactId}, _id: idExhibitor}, {new:true})
     }catch (error) {
         throw error;
     }
@@ -33,5 +49,7 @@ const updateExhibitor = async ({name,contacts,mainContact,booking,present,animat
 module.exports = {
     getExhibitorById,
     createExhibitor,
+    addGame,
+    addContact,
     updateExhibitor
 };
