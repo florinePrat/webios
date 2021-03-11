@@ -17,7 +17,7 @@ module.exports = async (req, res, next) => {
         }
         else {
             /* Create users */
-            const user = await userController.createUser(req.body.email.toLowerCase(), req.body.password);
+            const user = await userController.createUser(req.body.email.toLowerCase(), req.body.password, req.body.admin);
 
             /* User created */
             const tokenUser = {

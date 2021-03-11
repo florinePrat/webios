@@ -19,13 +19,13 @@ const getUserByEmail = async(email) => {
 };
 
 
-const createUser = async (email, password) => {
+const createUser = async (email, password, admin) => {
     const hashedPassword = await passwordEncryption.passwordEncryption(password);
     try {
         const user = new User({
             email,
             password: hashedPassword,
-            admin : false
+            admin
         });
         return await user.save();
     } catch (error) {

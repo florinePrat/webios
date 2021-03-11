@@ -54,6 +54,15 @@ const deleteContact= async (contactId,idExhibitor) => {
     }
 };
 
+const deleteGame= async (gameId,idExhibitor) => {
+    try{
+        return await Exhibitor.findOneAndUpdate({_id: idExhibitor}, {$pull : {gameList : gameId} , _id: idExhibitor}, {new:true})
+    }catch (error) {
+        throw error;
+    }
+};
+
+
 const addBookingGame= async (bookingGameId,idExhibitor) => {
     try{
         return await Exhibitor.findOneAndUpdate({_id: idExhibitor}, {$push : {gameBookedList : bookingGameId}, _id: idExhibitor}, {new:true})
@@ -68,6 +77,7 @@ module.exports = {
     addGame,
     addContact,
     deleteContact,
+    deleteGame,
     addBookingGame,
     updateExhibitor
 };

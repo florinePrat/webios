@@ -7,6 +7,7 @@ const gameSchema = mongoose.Schema({
     nbPlayersMin: {type: Number},
     nbPlayersMax: {type: Number},
     category : {type: String},
+    notice : {type: String},
     description : {type: String},
     exhibitorId : {type: mongoose.Schema.Types.ObjectId, ref: 'Exhibitor'},
     prototypeGame : {type : Boolean}
