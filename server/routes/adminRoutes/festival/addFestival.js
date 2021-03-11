@@ -2,9 +2,7 @@ const FestivalController = require('../../../controllers/festivalController');
 
 module.exports = async (req, res) => {
     try{
-
         const currentFestival =  await FestivalController.getCurrentFestival();
-        console.log({currentFestival});
         if(currentFestival){
             await FestivalController.updateCurrentFestival(false, currentFestival._id)
         }
