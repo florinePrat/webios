@@ -18,10 +18,10 @@ const getAllBookingGameByFestival = async(festivalId) => {
     }
 };
 
-const createBookingGame = async (gameId,festivalId,publisherId,space,zone,qtExhib,qtSend,tombola,dotation,comment,putOnPlan,bringByExhibitor,received,animator,isCallback,callbackPrice,isCallbackDone) => {
+const createBookingGame = async (gameId,festivalId,exhibitorId,bookingId,zone,qtExhib,qtSend,tombola,dotation,comment,putOnPlan,bringByExhibitor,received,place,isCallback,callbackPrice,isCallbackDone) => {
     try {
         const bookingGame = new BookingGame({
-            gameId,festivalId,publisherId,space,zone,qtExhib,qtSend,tombola,dotation,comment,putOnPlan,bringByExhibitor,received,animator,isCallback,callbackPrice,isCallbackDone
+            gameId,festivalId,exhibitorId,bookingId,zone,qtExhib,qtSend,tombola,dotation,comment,putOnPlan,bringByExhibitor,received,place,isCallback,callbackPrice,isCallbackDone
         });
         console.log(bookingGame);
         return await bookingGame.save();
@@ -39,10 +39,19 @@ const updateBookingGame = async (informations,idBookingGame) => {
     }
 };
 
+const deleteBookingGame = async (_id) => {
+    try{
+        console.log(_id)
+        return await BookingGame.deleteOne({_id})
+    }catch (error) {
+        throw error;
+    }
+};
 
 module.exports = {
     getBookingGameById,
     getAllBookingGameByFestival,
     updateBookingGame,
     createBookingGame,
+    deleteBookingGame
 };

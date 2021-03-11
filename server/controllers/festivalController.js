@@ -54,15 +54,24 @@ const getFestivalByName = async(name) => {
     }
 };
 
-const createFestival = async (name, current) => {
+const createFestival = async (name, current,exhibitors,gameBookedList,space) => {
     try {
         const festival = new Festival({
-            name, current
+            name, current,exhibitors,gameBookedList,space
         });
         console.log(festival);
         return await festival.save();
     } catch (error) {
         console.log(error);
+        throw error;
+    }
+};
+
+const deleteFestival = async (_id) => {
+    try{
+        console.log(_id)
+        return await Festival.deleteOne({_id})
+    }catch (error) {
         throw error;
     }
 };
@@ -74,5 +83,6 @@ module.exports = {
     createFestival,
     getCurrentFestival,
     updateCurrentFestival,
-    updateFestival
+    updateFestival,
+    deleteFestival
 };

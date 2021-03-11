@@ -42,9 +42,20 @@ const updatePassword = async (_id,password) => {
     }
 };
 
+
+const deleteUser = async (_id) => {
+    try{
+        console.log(_id)
+        return await User.deleteOne({_id})
+    }catch (error) {
+        throw error;
+    }
+};
+
 module.exports = {
     getUserById,
     createUser,
     getUserByEmail,
-    updatePassword
+    updatePassword,
+    deleteUser
 };

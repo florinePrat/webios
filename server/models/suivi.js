@@ -5,7 +5,7 @@ const suiviSchema = mongoose.Schema({
     exhibitorId: {type: mongoose.Schema.Types.ObjectId, ref: 'Exhibitor'},
     datContact1 : {type : Date},
     datContact2 : {type : Date},
-    present : {type : String},
+    present : {type : Boolean},
     statusTraking : {type : String},
 });
 

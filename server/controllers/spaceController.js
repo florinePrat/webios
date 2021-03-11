@@ -9,14 +9,10 @@ const getSpaceById = async(_id) => {
     }
 };
 
-const createSpace = async (name, numberOfTable, unitPriceOfTable, m2Price, festivalId) => {
+const createSpace = async (name, festivalId, numberOfTable1, unitPriceOfTable1, m2Price1, numberOfTable2, unitPriceOfTable2, m2Price2, numberOfTable3, numberOfTable3, m2Price3) => {
     try {
         const space = new Space({
-            name,
-            numberOfTable,
-            unitPriceOfTable,
-            m2Price,
-            festivalId
+            name, festivalId, numberOfTable1, unitPriceOfTable1, m2Price1, numberOfTable2, unitPriceOfTable2, m2Price2, numberOfTable3, numberOfTable3, m2Price3
         });
         console.log(space);
         return await space.save();

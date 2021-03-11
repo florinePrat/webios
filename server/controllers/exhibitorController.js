@@ -9,10 +9,10 @@ const getExhibitorById = async(_id) => {
     }
 };
 
-const createExhibitor = async ({name,contacts,mainContact,booking,present,animatorNeeded,publisher,publisherName,place,datContact1,datContact2,crSended,invoiceSended,paymentOk,statusTraking,gameList,gameBookedList}) => {
+const createExhibitor = async ({name,contacts,mainContact,booking,publisherOnly,gameList,gameBookedList}) => {
     try {
         const exhibitor = new Exhibitor({
-            name,contacts,mainContact,booking,present,animatorNeeded,publisher,publisherName,place,datContact1,datContact2,crSended,invoiceSended,paymentOk,statusTraking,gameList,gameBookedList
+            name,contacts,mainContact,booking,publisherOnly,gameList,gameBookedList
         });
         console.log(exhibitor);
         return await exhibitor.save();
@@ -71,6 +71,15 @@ const addBookingGame= async (bookingGameId,idExhibitor) => {
     }
 };
 
+const deleteExhibitor = async (_id) => {
+    try{
+        console.log(_id)
+        return await Exhibitor.deleteOne({_id})
+    }catch (error) {
+        throw error;
+    }
+};
+
 module.exports = {
     getExhibitorById,
     createExhibitor,
@@ -79,5 +88,6 @@ module.exports = {
     deleteContact,
     deleteGame,
     addBookingGame,
-    updateExhibitor
+    updateExhibitor,
+    deleteExhibitor
 };
