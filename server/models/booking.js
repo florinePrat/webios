@@ -11,6 +11,7 @@ const bookingSchema = mongoose.Schema({
     crSended : {type : Boolean},
     invoiceSended : {type : Boolean},
     paymentOk : {type : Boolean},
+    putOnPlan : {type: Boolean},
     exhibitorId: {type: mongoose.Schema.Types.ObjectId, ref: 'Exhibitor'},
     festivalId: {type: mongoose.Schema.Types.ObjectId, ref: 'Festival'},
 });
