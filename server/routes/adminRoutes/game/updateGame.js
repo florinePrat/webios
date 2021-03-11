@@ -4,7 +4,7 @@ module.exports = async (req, res) => {
     try{
         const informations = {...req.body};
 
-        const game = await GameController.updateGame(informations);
+        const game = await GameController.updateGame(informations,informations.gameId);
         return res.status(200).json(game);
     }
     catch(e){
