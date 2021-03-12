@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-router.post('/addPublisher', require("./addPublisher"));
 router.post('/addExhibitor', require("./addExhibitor"));
-router.post('/exhibitorispublisher', require("./addExhibitorIsPublisher"));
+router.post('/addExhibitorIsPublisher', require("./addExhibitorIsPublisher"));
+router.put('/update', require("./updateExhibitor" ));
+router.delete('/delete', require("./deleteExhibitor"));
 
 module.exports =  router;
