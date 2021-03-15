@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 
 const bookingSchema = mongoose.Schema({
-    nbTableSpace1: {type : Float32Array},
-    nbTableSpace2: {type : Float32Array},
-    nbTableSpace3: {type : Float32Array},
-    nbM2Space1: {type : Float32Array},
-    nbM2Space2: {type : Float32Array},
-    nbM2Space3: {type : Float32Array},
+    nbTableSpace1: {type : Number},
+    nbTableSpace2: {type : Number},
+    nbTableSpace3: {type : Number},
+    nbM2Space1: {type : Number},
+    nbM2Space2: {type : Number},
+    nbM2Space3: {type : Number},
     animatorNeeded : {type : Boolean},
     crSended : {type : Boolean},
     invoiceSended : {type : Boolean},
