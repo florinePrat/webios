@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-router.use('/festival', require("./festival"));
+router.get('/current', require("./getcurrentFestival"));
 
 module.exports =  router;
-

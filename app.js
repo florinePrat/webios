@@ -27,13 +27,13 @@ app.use(morgan('dev'));
 app.use(cors());
 
 //routes accessible without being authenticated are redirected in routes
-//app.use("/api", require('./server/routes/visitorRoutes'));
+app.use("/api", require('./server/routes/visitorRoutes'));
 
 //routes accessible without being authenticated are redirected in routes
 app.use("/api", require('./server/routes/authRoutes'));
 
 //All routes with retricted content pass trough the isAuth middleware to verify authentication and if have organizer rights
-// app.use("/api", require('./server/middleware/auth'), require('./server/routes/organizerRoutes'));
+app.use("/api", require('./server/middleware/auth'), require('./server/routes/organizerRoutes'));
 
 //All routes with retricted content pass trough the isAuth middleware to verify authentication and if have admin rights
 app.use("/api", require('./server/middleware/admin'), require('./server/routes/adminRoutes'));

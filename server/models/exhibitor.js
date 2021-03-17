@@ -8,6 +8,7 @@ const exhibitorSchema = mongoose.Schema({
     publisherOnly : {type : Boolean},
     gameList : [{type: mongoose.Schema.Types.ObjectId, ref: 'Game'}],
     gameBookedList : [{type: mongoose.Schema.Types.ObjectId, ref: 'BookingGame'}],
+    suiviId: {type: mongoose.Schema.Types.ObjectId, ref: 'Suivi'},
 });
 
 module.exports = mongoose.model('Exhibitor', exhibitorSchema);
