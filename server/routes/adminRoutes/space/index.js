@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-// TODO : à tester Postman
-router.post('/update', require("./updateSpace"));
-router.post('/add', require("./addSpace"));
-router.post('/delete', require("./deleteSpace"));
+router.put('/update', require("./updateSpace")); // testé et validé
+router.post('/add', require("./addSpace")); // testé et validé
+router.delete('/delete', require("./deleteSpace")); // testé et validé
 
 module.exports =  router;

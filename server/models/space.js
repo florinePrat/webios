@@ -14,4 +14,4 @@ const spaceSchema = mongoose.Schema({
     m2Price3 : {type: Number},
 });
 
-module.exports = mongoose.model('Booking', spaceSchema);
+module.exports = mongoose.model('Space', spaceSchema);

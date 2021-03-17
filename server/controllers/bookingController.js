@@ -1,5 +1,5 @@
-var mongoose = require('mongoose');
-const Booking = mongoose.model('Booking');
+const Booking = require('../models/booking');
+
 
 const getBookingById = async(_id) => {
     try {

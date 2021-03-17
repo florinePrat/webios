@@ -2,7 +2,7 @@ const SpaceController = require('../../../controllers/SpaceController');
 
 module.exports = async (req, res) => {
     try{
-        const Space = await SpaceController.deleteSpace(req.body.SpaceId);
+        const Space = await SpaceController.deleteSpace(req.body.spaceId);
         return res.status(200).json(Space);
     }
     catch(e){
