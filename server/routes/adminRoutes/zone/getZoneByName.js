@@ -2,7 +2,7 @@ const ZoneController = require('../../../controllers/ZoneController');
 
 module.exports = async (req, res) => {
     try{
-        const Zone = await ZoneController.deleteZone(req.body.zoneId);
+        const Zone = await ZoneController.getZoneByName(req.body.name);
         return res.status(200).json(Zone);
     }
     catch(e){

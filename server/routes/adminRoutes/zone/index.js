@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-// TODO : à tester Postman
-router.post('/update', require("./updateZone"));
+// testés et validés
+router.put('/update', require("./updateZone"));
 router.post('/add', require("./addZone"));
-router.post('/delete', require("./deleteZone"));
+router.delete('/delete', require("./deleteZone"));
+router.get('/getByName', require("./getZoneByName"));
+
 
 module.exports =  router;
