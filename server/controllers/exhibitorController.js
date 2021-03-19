@@ -9,10 +9,20 @@ const getExhibitorById = async(_id) => {
     }
 };
 
-const createExhibitor = async ({name,contacts,mainContact,booking,publisherOnly,gameList,gameBookedList}) => {
+const getExhibitorByFestivalId = async(festivalId) => {
+    try {
+        console.log({festivalId});
+        return await Exhibitor.find().populate('suiviId').populate('mainContact').populate('contacts');
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+};
+
+const createExhibitor = async ({name,publisherOnly}) => {
     try {
         const exhibitor = new Exhibitor({
-            name,contacts,mainContact,booking,publisherOnly,gameList,gameBookedList
+            name,publisherOnly
         });
         console.log(exhibitor);
         return await exhibitor.save();
@@ -24,7 +34,7 @@ const createExhibitor = async ({name,contacts,mainContact,booking,publisherOnly,
 
 const updateExhibitor = async (informations,idExhibitor) => {
     try{
-        return await Exhibitor.findOneAndUpdate({_id: idExhibitor}, {...informations, _id: idExhibitor}, {new:true})
+        return await Exhibitor.findOneAndUpdate({_id: idExhibitor}, {...informations, _id: idExhibitor}, {new:true}).populate('suiviId')
     }catch (error) {
         throw error;
     }
@@ -40,7 +50,12 @@ const addGame = async (gameId,idExhibitor) => {
 
 const addContact= async (contactId,idExhibitor,mainContact) => {
     try{
-        return await Exhibitor.findOneAndUpdate({_id: idExhibitor}, {$push : {contacts : contactId}, mainContact , _id: idExhibitor}, {new:true})
+        if(!mainContact){
+            return await Exhibitor.findOneAndUpdate({_id: idExhibitor}, {$push : {contacts : contactId} , _id: idExhibitor}, {new:true})
+        }else{
+            return await Exhibitor.findOneAndUpdate({_id: idExhibitor}, {$push : {contacts : contactId}, mainContact , _id: idExhibitor}, {new:true})
+        }
+
     }catch (error) {
         throw error;
     }
@@ -82,6 +97,7 @@ const deleteExhibitor = async (_id) => {
 
 module.exports = {
     getExhibitorById,
+    getExhibitorByFestivalId,
     createExhibitor,
     addGame,
     addContact,
