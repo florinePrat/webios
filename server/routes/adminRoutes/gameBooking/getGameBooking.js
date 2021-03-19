@@ -2,13 +2,12 @@ const GameBookingController = require('../../../controllers/gameBookingControlle
 
 module.exports = async (req, res) => {
     try{
-        const informations = {...req.body};
-        const gameBooking = await GameBookingController.updateBookingGame(informations, informations.gameBookingId);
+        const gameBooking =  await GameBookingController.getBookingGameById(req.body.gameBookingId);
         return res.status(200).json(gameBooking);
     }
     catch(e){
         return res.status(500).json({
-            error : "Impossible de modifier ce gameBooking"
+            error : "Impossible de récupérer le gameBooking"
         });
     }
 };

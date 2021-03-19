@@ -5,7 +5,7 @@ const router = express.Router();
 router.put('/update', require("./updateBooking"));
 router.post('/add', require("./addBooking"));
 router.delete('/delete', require("./deleteBooking"));
-router.get('/getAll', require("./getAllBookings"))
-router.get('/getById', require("./getBooking"))
+router.get('/getAll', require("./getAllBookings"));
+router.get('/getById', require("./getBooking"));
 
 module.exports =  router;

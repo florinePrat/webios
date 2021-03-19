@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-// TODO : à tester Postman
-router.post('/update', require("./updateGameBooking"));
+// testés et validés
+router.put('/update', require("./updateGameBooking"));
 router.post('/add', require("./addGameBooking"));
-router.post('/delete', require("./deleteGameBooking"));
+router.delete('/delete', require("./deleteGameBooking"));
+router.get('/getByFestival', require("./getGameBookingsByFestival"));
+router.get('/getById', require("./getGameBooking"));
 
 module.exports =  router;

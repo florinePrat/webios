@@ -15,9 +15,9 @@ const bookingGameSchema = mongoose.Schema({
     putOnPlan : {type: Boolean},
     bringByExhibitor : {type: Boolean},
     received : {type: Boolean},
-    place : {type : String},
+    place : {type : Boolean}, // Placé sur le plan ou non
     isCallback : {type: Boolean},
-    callbackPrice : {type: [Number]},
+    callbackPrice : {type: Number}, // C'était un tableau 
     isCallbackDone : {type: Boolean},
 });
 

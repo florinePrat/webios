@@ -1,8 +1,8 @@
-const GameBookingController = require('../../../controllers/GameBookingController');
+const GameBookingController = require('../../../controllers/gameBookingController');
 
 module.exports = async (req, res) => {
     try{
-        const GameBooking = await GameBookingController.deleteGameBooking(req.body.GameBookingId);
+        const GameBooking = await GameBookingController.deleteBookingGame(req.body.gameBookingId);
         return res.status(200).json(GameBooking);
     }
     catch(e){
