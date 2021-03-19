@@ -17,7 +17,7 @@ const bookingGameSchema = mongoose.Schema({
     received : {type: Boolean},
     place : {type : String},
     isCallback : {type: Boolean},
-    callbackPrice : {type: Float32Array},
+    callbackPrice : {type: [Number]},
     isCallbackDone : {type: Boolean},
 });
 

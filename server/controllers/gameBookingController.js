@@ -18,10 +18,12 @@ const getAllBookingGameByFestival = async(festivalId) => {
     }
 };
 
-const createBookingGame = async (gameId,festivalId,exhibitorId,bookingId) => {
+const createBookingGame = async (gameId,festivalId,exhibitorId,bookingId,zone,qtExhib,qtSend,tombola,dotation,dateAdd,comment,putOnPlan,
+    bringByExhibitor,received,place,isCallback,callbackPrice,isCallbackDone) => {
     try {
         const bookingGame = new BookingGame({
-            gameId,festivalId,exhibitorId,bookingId
+            gameId,festivalId,exhibitorId,bookingId,zone,qtExhib,qtSend,tombola,dotation,dateAdd,comment,putOnPlan,
+            bringByExhibitor,received,place,isCallback,callbackPrice,isCallbackDone
         });
         console.log(bookingGame);
         return await bookingGame.save();
