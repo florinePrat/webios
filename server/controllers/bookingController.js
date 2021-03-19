@@ -39,9 +39,19 @@ const deleteBooking = async (_id) => {
     }
 };
 
+const getAllBookings = async() => {
+    try {
+        return await Booking.find();
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+};
+
 module.exports = {
     getBookingById,
     createBooking,
     updateBooking,
-    deleteBooking
+    deleteBooking,
+    getAllBookings
 };

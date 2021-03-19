@@ -2,7 +2,7 @@ const BookingController = require('../../../controllers/BookingController');
 
 module.exports = async (req, res) => {
     try{
-        const Booking = await BookingController.deleteBooking(req.body.BookingId);
+        const Booking = await BookingController.deleteBooking(req.body.bookingId);
         return res.status(200).json(Booking);
     }
     catch(e){
