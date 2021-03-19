@@ -12,7 +12,7 @@ const getExhibitorById = async(_id) => {
 const getExhibitorByFestivalId = async(festivalId) => {
     try {
         console.log({festivalId});
-        return await Exhibitor.find().populate('suiviId').populate('mainContact').populate('contacts');
+        return await Exhibitor.find().populate('suiviId').populate('mainContact').populate('contacts').populate('booking').populate('gameList').populate('gameBookedList');
     } catch (error) {
         console.log(error);
         throw error;
