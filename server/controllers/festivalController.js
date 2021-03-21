@@ -35,6 +35,22 @@ const updateFestival = async (informations,idFestival) => {
     }
 };
 
+const addExhibitorToFestival = async (exhibitorId,idFestival) => {
+    try{
+        return await Festival.findOneAndUpdate({_id: idFestival}, {$push : {exhibitors : exhibitorId} , _id: idFestival}, {new:true})
+    }catch (error) {
+        throw error;
+    }
+};
+
+const addBookingGameToFestival = async (gameBookingId,idFestival) => {
+    try{
+        return await Festival.findOneAndUpdate({_id: idFestival}, {$push : {gameBookedList : gameBookingId} , _id: idFestival}, {new:true})
+    }catch (error) {
+        throw error;
+    }
+};
+
 const updateCurrentFestival = async (current,idFestival) => {
     try{
         return await Festival.findOneAndUpdate({_id: idFestival}, {current, _id: idFestival}, {new:true})
@@ -84,5 +100,7 @@ module.exports = {
     getCurrentFestival,
     updateCurrentFestival,
     updateFestival,
-    deleteFestival
+    deleteFestival,
+    addExhibitorToFestival,
+    addBookingGameToFestival
 };
