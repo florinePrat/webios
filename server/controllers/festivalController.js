@@ -2,7 +2,7 @@ const Festival = require('../models/festival');
 
 const getFestivalById = async(_id) => {
     try {
-        return await Festival.findById(_id);
+        return await Festival.findById(_id).populate('zoneId').populate('space');
     } catch (error) {
         console.log(error);
         throw error;
@@ -46,6 +46,14 @@ const addExhibitorToFestival = async (exhibitorId,idFestival) => {
 const addBookingGameToFestival = async (gameBookingId,idFestival) => {
     try{
         return await Festival.findOneAndUpdate({_id: idFestival}, {$push : {gameBookedList : gameBookingId} , _id: idFestival}, {new:true})
+    }catch (error) {
+        throw error;
+    }
+};
+
+const addSpaceToFestival = async (spaceId,idFestival) => {
+    try{
+        return await Festival.findOneAndUpdate({_id: idFestival}, {space : spaceId , _id: idFestival}, {new:true})
     }catch (error) {
         throw error;
     }
@@ -102,5 +110,6 @@ module.exports = {
     updateFestival,
     deleteFestival,
     addExhibitorToFestival,
+    addSpaceToFestival,
     addBookingGameToFestival
 };

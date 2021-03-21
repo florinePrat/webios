@@ -20,16 +20,15 @@ module.exports = async (req, res) => {
 
         // First create game with all information in req.body
 
-        const game = await GameController.createGame(req.body.name,req.body.ageMin,req.body.duration,req.body.category,req.body.prototype,req.body.nbPlayersMin,req.body.nbPlayersMax,req.body.description,req.body.publisherId);
+        const game = await GameController.createGame(req.body.name,req.body.ageMin,req.body.duration,req.body.category, req.body.notice,req.body.prototype,req.body.nbPlayersMin,req.body.nbPlayersMax,req.body.description,req.body.publisherId);
         const gameAdded =  await ExhibitorController.addGame(game._id, req.body.publisherId);
 
         // Then create a bookingGame with the example of exhibitor because we to add
         
         // 1 - game id to booking game
-        const gameBooking = await GameBookingController.createBookingGame(game._id,req.body.festivalId,req.body.exhibitorId,req.body.bookingId,req.body.zone,req.body.qtExhib,req.body.qtSend,req.body.tombola,req.body.dotation,req.body.dateAdd,req.body.comment,req.body.putOnPlan,req.body.bringByExhibitor,req.body.received,req.body.spaceId,req.body.isCallback,0,false);
+        const gameBooking = await GameBookingController.createBookingGame(game._id,req.body.festivalId,req.body.exhibitorId,req.body.bookingId,req.body.zoneId,req.body.qtExhib,req.body.qtSend,req.body.tombola,req.body.dotation,req.body.dateAdd,req.body.comment,req.body.putOnPlan,req.body.bringByExhibitor,req.body.received,req.body.spaceId,req.body.isCallback,0,false);
         // 2 - change suivi
-        // const suiviUpdate = await SuiviController.updateSuivi({suiviId : suivi._id}, exhibitor._id);
-        // Changer quoi ??
+
 
         // 3 - add booking game to gameBookedList in exhibitor
         const gameBookingAddedExhibitor =  await ExhibitorController.addBookingGame(gameBooking._id, req.body.publisherId);
