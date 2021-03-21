@@ -59,6 +59,14 @@ const addSpaceToFestival = async (spaceId,idFestival) => {
     }
 };
 
+const addZoneToFestival = async (zoneId,idFestival) => {
+    try{
+        return await Festival.findOneAndUpdate({_id: idFestival}, {zoneId : zoneId , _id: idFestival}, {new:true})
+    }catch (error) {
+        throw error;
+    }
+};
+
 const updateCurrentFestival = async (current,idFestival) => {
     try{
         return await Festival.findOneAndUpdate({_id: idFestival}, {current, _id: idFestival}, {new:true})
@@ -111,5 +119,6 @@ module.exports = {
     deleteFestival,
     addExhibitorToFestival,
     addSpaceToFestival,
-    addBookingGameToFestival
+    addBookingGameToFestival,
+    addZoneToFestival
 };
