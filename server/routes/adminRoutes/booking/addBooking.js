@@ -7,7 +7,12 @@ module.exports = async (req, res) => {
         const exhibitor = await ExhibitorController.updateExhibitor({booking : booking._id}, req.body.exhibitorId);
         if(exhibitor){
             return res.status(200).json(exhibitor);
+        }else {
+            return res.status(500).json({
+                error : "Erreur dans addBooking : impossible d'update l'exhibitor"
+            })
         }
+
     }
     catch(e){
         return res.status(500).json({

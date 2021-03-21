@@ -15,6 +15,10 @@ module.exports = async (req, res) => {
 
         if(contactAdded){
             return res.status(200).json(contactAdded);
+        }else {
+            return res.status(500).json({
+                error : "Erreur dans addContact : impossible d'update l'exhibitor"
+            })
         }
     }
     catch(e){

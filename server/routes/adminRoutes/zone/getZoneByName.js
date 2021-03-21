@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
     }
     catch(e){
         return res.status(500).json({
-            error : "Impossible de supprimer cette zone"
+            error : "Impossible de récupérer cette zone"
         });
     }
 };

@@ -7,6 +7,10 @@ module.exports = async (req, res) => {
         const gameDeleted =  await ExhibitorController.deleteGame(game._id, req.body.publisherId);
         if(gameDeleted){
             return res.status(200).json(game);
+        }else {
+            return res.status(500).json({
+                error : "Erreur dans deleteGame : impossible d'update l'éditeur"
+            })
         }
     }
     catch(e){
