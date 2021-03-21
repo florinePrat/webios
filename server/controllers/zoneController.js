@@ -39,9 +39,18 @@ const deleteZone = async (_id) => {
     }
 };
 
+const addGameZone= async (gameId,idZone) => {
+    try{
+        return await Zone.findOneAndUpdate({_id: idZone}, {$push : {gamesId : gameId}, _id: idZone}, {new:true})
+    }catch (error) {
+        throw error;
+    }
+};
+
 module.exports = {
     getZoneByName,
     createZone,
     updateZone,
-    deleteZone
+    deleteZone,
+    addGameZone
 };
