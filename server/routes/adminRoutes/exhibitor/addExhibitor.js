@@ -11,13 +11,21 @@ module.exports = async (req, res) => {
             console.log({addSuiviToExhibitor});
             if(suivi && addSuiviToExhibitor){
                 return res.status(200).json(addSuiviToExhibitor);
+            }else {
+                return res.status(500).json({
+                    error : "Erreur dans addExhibitor lors de la gestion du Suivi"
+                })
             }
+        }else {
+            return res.status(500).json({
+                error : "Erreur dans addExhibitor : impossible d'update le festival"
+            })
         };
 
     }
     catch(e){
         return res.status(500).json({
-            error : "Impossible de modifier ce jeu"
+            error : "Impossible d'ajouter cet exhibitor"
         });
     }
 };

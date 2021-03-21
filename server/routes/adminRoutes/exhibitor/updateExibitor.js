@@ -8,7 +8,7 @@ module.exports = async (req, res) => {
     }
     catch(e){
         return res.status(500).json({
-            error : "Impossible de modifier cet eexhibitor"
+            error : "Impossible de modifier cet exhibitor"
         });
     }
 };

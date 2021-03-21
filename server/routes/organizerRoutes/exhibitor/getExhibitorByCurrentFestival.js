@@ -8,7 +8,7 @@ module.exports = async (req, res) => {
     }
     catch(e){
         return res.status(500).json({
-            error : "Impossible de récupérer les festivals"
+            error : "Impossible de récupérer les exhibitors de ce festival"
         });
     }
 };

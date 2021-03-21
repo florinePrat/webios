@@ -7,6 +7,10 @@ module.exports = async (req, res) => {
         const gameAdded =  await ExhibitorController.addGame(game._id, req.body.publisherId);
         if(gameAdded){
             return res.status(200).json(game);
+        }else {
+            return res.status(500).json({
+                error : "Erreur dans addGame : impossible d'update l'éditeur"
+            })
         }
     }
     catch(e){

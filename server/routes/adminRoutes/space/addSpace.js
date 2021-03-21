@@ -8,6 +8,10 @@ module.exports = async (req, res) => {
         const festival = FestivalController.addSpaceToFestival(space._id, req.body.festivalId);
         if(festival){
             return res.status(200).json(space);
+        }else {
+            return res.status(500).json({
+                error : "Erreur dans addSpace : impossible d'update le festival"
+            })
         }
     }
     catch(e){

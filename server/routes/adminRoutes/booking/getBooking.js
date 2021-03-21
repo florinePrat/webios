@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
     }
     catch(e){
         return res.status(500).json({
-            error : "Impossible de récupérer les bookings"
+            error : "Impossible de récupérer le booking"
         });
     }
 };

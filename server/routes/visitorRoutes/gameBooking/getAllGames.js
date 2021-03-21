@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
     }
     catch(e){
         return res.status(500).json({
-            error : "Impossible de récupérer les games"
+            error : "Impossible de récupérer les gameBookings de ce festival"
         });
     }
 };
