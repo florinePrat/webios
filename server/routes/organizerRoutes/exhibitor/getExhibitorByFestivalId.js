@@ -1,8 +1,8 @@
-const Exhibitor = require('../../../controllers/exhibitorController');
+const FestivalController = require('../../../controllers/festivalController');
 
 module.exports = async (req, res) => {
     try{
-        const exhibitors =  await Exhibitor.getExhibitorByFestivalId(req.query.festivalId);
+        const exhibitors =  await FestivalController.getExhibitorsByFestivalId(req.query.festivalId);
         console.log({exhibitors});
         return res.status(200).json(exhibitors);
     }

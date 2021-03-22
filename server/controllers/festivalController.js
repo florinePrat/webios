@@ -27,6 +27,16 @@ const getCurrentFestival = async() => {
     }
 };
 
+const getExhibitorsByFestivalId = async(festivalId) => {
+    try {
+        return await Festival.findById(festivalId).populate({path : 'exhibitors', populate : [{path :  'suiviId'}, {path :  'mainContact'}, {path :  'contacts'}, {path :  'booking'},{path :  'gameList'},{path :  'gameBookedList'}]});
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+};
+
+
 const updateFestival = async (informations,idFestival) => {
     try{
         return await Festival.findOneAndUpdate({_id: idFestival}, {...informations, _id: idFestival}, {new:true})
@@ -120,5 +130,6 @@ module.exports = {
     addExhibitorToFestival,
     addSpaceToFestival,
     addBookingGameToFestival,
+    getExhibitorsByFestivalId,
     addZoneToFestival
 };

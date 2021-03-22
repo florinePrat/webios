@@ -9,9 +9,8 @@ const getExhibitorById = async(_id) => {
     }
 };
 
-const getExhibitorByFestivalId = async(festivalId) => {
+const getAllExhibitor = async() => {
     try {
-        console.log({festivalId});
         return await Exhibitor.find().populate('suiviId').populate('mainContact').populate('contacts').populate('booking').populate('gameList').populate('gameBookedList');
     } catch (error) {
         console.log(error);
@@ -97,7 +96,7 @@ const deleteExhibitor = async (_id) => {
 
 module.exports = {
     getExhibitorById,
-    getExhibitorByFestivalId,
+    getAllExhibitor,
     createExhibitor,
     addGame,
     addContact,
