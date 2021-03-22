@@ -1,4 +1,4 @@
-const ZoneController = require('../../../controllers/ZoneController');
+const ZoneController = require('../../../controllers/zoneController');
 
 module.exports = async (req, res) => {
     try{

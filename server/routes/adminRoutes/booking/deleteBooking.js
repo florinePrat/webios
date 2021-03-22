@@ -1,4 +1,4 @@
-const BookingController = require('../../../controllers/BookingController');
+const BookingController = require('../../../controllers/bookingController');
 
 module.exports = async (req, res) => {
     try{

@@ -1,4 +1,4 @@
-const SpaceController = require('../../../controllers/SpaceController');
+const SpaceController = require('../../../controllers/spaceController');
 
 module.exports = async (req, res) => {
     try{
