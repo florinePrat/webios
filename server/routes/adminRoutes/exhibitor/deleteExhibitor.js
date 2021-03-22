@@ -1,4 +1,4 @@
-const ExhibitorController = require('../../../controllers/ExhibitorController');
+const ExhibitorController = require('../../../controllers/exhibitorController');
 
 module.exports = async (req, res) => {
     try{
