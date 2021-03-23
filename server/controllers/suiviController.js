@@ -9,6 +9,15 @@ const getSuiviById = async(_id) => {
     }
 };
 
+const getSuiviByFestivalAndexhibitorId = async(festivalId, exhibitorId) => {
+    try {
+        return await Suivi.findOne({festivalId, exhibitorId});
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+};
+
 const createSuivi = async (festivalId,exhibitorId,datContact1,datContact2,present,statusTraking) => {
     try {
         const suivi = new Suivi({
@@ -43,5 +52,6 @@ module.exports = {
     getSuiviById,
     createSuivi,
     updateSuivi,
-    deleteSuivi
+    deleteSuivi,
+    getSuiviByFestivalAndexhibitorId
 };
