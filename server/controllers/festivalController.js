@@ -71,7 +71,7 @@ const addSpaceToFestival = async (spaceId,idFestival) => {
 
 const addZoneToFestival = async (zoneId,idFestival) => {
     try{
-        return await Festival.findOneAndUpdate({_id: idFestival}, {zoneId : zoneId , _id: idFestival}, {new:true})
+        return await Festival.findOneAndUpdate({_id: idFestival}, {$push : {zoneId} , _id: idFestival}, {new:true})
     }catch (error) {
         throw error;
     }
