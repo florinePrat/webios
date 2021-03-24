@@ -15,7 +15,6 @@ const bookingGameSchema = mongoose.Schema({
     putOnPlan : {type: Boolean},
     bringByExhibitor : {type: Boolean},
     received : {type: Boolean},
-    space : {type : mongoose.Schema.Types.ObjectId, ref: 'Space'},
     isCallback : {type: Boolean},
     callbackPrice : {type: Number},
     isCallbackDone : {type: Boolean},
