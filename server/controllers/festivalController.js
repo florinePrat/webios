@@ -20,7 +20,7 @@ const getAllFestival = async() => {
 
 const getCurrentFestival = async() => {
     try {
-        return await Festival.findOne({current : true}).populate('space').populate('zoneId').populate({path : 'gameBookedList', populate: {path : 'gameId'}});
+        return await Festival.findOne({current : true}).populate('space').populate('zoneId').populate({path : 'gameBookedList', populate: [{path : 'gameId'}, {path : 'zone'}, {path : 'exhibitorId'}]});
     } catch (error) {
         console.log(error);
         throw error;
