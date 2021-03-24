@@ -20,7 +20,7 @@ const getAllFestival = async() => {
 
 const getCurrentFestival = async() => {
     try {
-        return await Festival.findOne({current : true}).populate('space').populate('zoneId').populate('gameBookedList');
+        return await Festival.findOne({current : true}).populate('space').populate('zoneId').populate({path : 'gameBookedList', populate: {path : 'gameId'}});
     } catch (error) {
         console.log(error);
         throw error;
@@ -111,7 +111,7 @@ const createFestival = async (name, current,exhibitors,gameBookedList,space) => 
 
 const deleteFestival = async (_id) => {
     try{
-        console.log(_id)
+        console.log(_id);
         return await Festival.deleteOne({_id})
     }catch (error) {
         throw error;
