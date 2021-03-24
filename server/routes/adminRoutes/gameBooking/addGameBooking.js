@@ -26,7 +26,8 @@ module.exports = async (req, res) => {
         const suivi = await SuiviController.getSuiviByFestivalAndexhibitorId(req.body.festivalId, req.body.exhibitorId);
         await SuiviController.updateSuivi({statusTraking : 'liste de jeux demandée'}, suivi._id);
         // 3 - add booking game to gameBookedList in exhibitor
-        await ExhibitorController.addBookingGame(gameBooking._id, req.body.publisherId);
+
+        const addBookingGameToExhibitor = await ExhibitorController.addBookingGame(gameBooking._id, req.body.exhibitorId);
 
         // 4 - add booking game to festival
         await FestivalController.addBookingGameToFestival(gameBooking._id, req.body.festivalId);
@@ -37,7 +38,12 @@ module.exports = async (req, res) => {
         // 7 - add the game Id to gameList in exhibitor
         const gameAddedExhibitor =  await ExhibitorController.addGame(gameBooking._id, req.body.exhibitorId);
 
-        return res.status(200).json(gameAddedExhibitor);
+        if(addBookingGameToExhibitor){
+            return res.status(200).json(gameAddedExhibitor);
+        }else{
+            return res.status(400).json({error : "error lors de l'ajour de la réservation"});
+        }
+
     }
     catch(e){
         return res.status(500).json({
