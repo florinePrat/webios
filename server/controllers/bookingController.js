@@ -22,6 +22,16 @@ const createBooking = async (nbTableSpace1,nbTableSpace2,nbTableSpace3,nbM2Space
     }
 };
 
+const getAllBookingByFestival = async(festivalId) => {
+    try {
+        // return await BookingGame.find({festivalId}).populate('gameId').select('gameId');
+        return await BookingGame.find({festivalId});
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+};
+
 const updateBooking = async (informations,idBooking) => {
     try{
         return await Booking.findOneAndUpdate({_id: idBooking}, {...informations, _id: idBooking}, {new:true})
@@ -53,5 +63,6 @@ module.exports = {
     createBooking,
     updateBooking,
     deleteBooking,
-    getAllBookings
+    getAllBookings,
+    getAllBookingByFestival
 };
