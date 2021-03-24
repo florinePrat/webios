@@ -25,7 +25,7 @@ const createBooking = async (nbTableSpace1,nbTableSpace2,nbTableSpace3,nbM2Space
 const getAllBookingByFestival = async(festivalId) => {
     try {
         // return await BookingGame.find({festivalId}).populate('gameId').select('gameId');
-        return await BookingGame.find({festivalId});
+        return await Booking.find({festivalId});
     } catch (error) {
         console.log(error);
         throw error;
