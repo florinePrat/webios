@@ -23,6 +23,8 @@ module.exports = async (req, res) => {
             false,false,0,false);
         // 2 - change suivi
 
+        //////////////// ATTENTION !!!! SI LE STATUSTRACKING EST SUP2RIEUR A LISTE DE JEUX DMAND2E (LISTE D JEUX RECU...) IL VA Y REVENIR....DONC IL faut faire une vérif à ce niveau là !
+
         const suivi = await SuiviController.getSuiviByFestivalAndexhibitorId(req.body.festivalId, req.body.exhibitorId);
         await SuiviController.updateSuivi({statusTraking : 'liste de jeux demandée'}, suivi._id);
         // 3 - add booking game to gameBookedList in exhibitor
