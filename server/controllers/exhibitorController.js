@@ -2,7 +2,7 @@ const Exhibitor = require('../models/exhibitor');
 
 const getExhibitorById = async(_id) => {
     try {
-        return await Exhibitor.findById(_id).populate('gameList').populate('gameBookedList').populate('booking');
+        return await Exhibitor.findById(_id).populate('gameList').populate({path : 'gameBookedList', populate : [{path : 'gameId'},{path : 'zone'}]}).populate('booking');
     } catch (error) {
         console.log(error);
         throw error;
