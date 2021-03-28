@@ -9,6 +9,15 @@ const getZoneByName = async(name) => {
     }
 };
 
+const getZoneById = async(_id) => {
+    try {
+        return await Zone.findById(_id)
+    } catch (error) {
+        console.log(error)
+        throw error;
+    }
+};
+
 const createZone = async (name, festivalId, gamesId) => {
     try {
         const zone = new Zone({
@@ -52,5 +61,6 @@ module.exports = {
     createZone,
     updateZone,
     deleteZone,
-    addGameZone
+    addGameZone,
+    getZoneById
 };
