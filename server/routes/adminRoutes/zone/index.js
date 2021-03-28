@@ -6,7 +6,7 @@ router.put('/update', require("./updateZone"));
 router.post('/add', require("./addZone"));
 router.delete('/delete', require("./deleteZone"));
 router.get('/getByName', require("./getZoneByName"));
-router.get('/getById', require("./getZoneById"));
+router.get('/id', require("./getZoneById"));
 
 
 module.exports =  router;
