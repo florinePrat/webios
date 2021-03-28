@@ -6,6 +6,7 @@ const exhibitorSchema = mongoose.Schema({
     mainContact : {type: mongoose.Schema.Types.ObjectId, ref: 'Contact'},
     booking: [{type: mongoose.Schema.Types.ObjectId, ref: 'Booking'}],
     publisherOnly : {type : Boolean},
+    exhibitorOnly : {type : Boolean},
     gameList : [{type: mongoose.Schema.Types.ObjectId, ref: 'Game'}],
     gameBookedList : [{type: mongoose.Schema.Types.ObjectId, ref: 'BookingGame'}],
     suiviId: {type: mongoose.Schema.Types.ObjectId, ref: 'Suivi'},

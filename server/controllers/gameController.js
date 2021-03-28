@@ -18,7 +18,7 @@ const getGameByName = async(name) => {
     }
 };
 
-const createGame = async (name,ageMin,duration,nbPlayersMin,nbPlayersMax,category,notice,description,exhibitorId,prototypeGame) => {
+const createGame = async (name,ageMin,duration,category,notice,prototypeGame,nbPlayersMin,nbPlayersMax,description,exhibitorId) => {
     try {
         const game = new Game({
             name,ageMin,duration,nbPlayersMin,nbPlayersMax,category,notice,description,exhibitorId,prototypeGame        });

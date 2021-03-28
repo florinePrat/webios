@@ -11,8 +11,7 @@ const getBookingGameById = async(_id) => {
 
 const getAllBookingGameByFestival = async(festivalId) => {
     try {
-        // return await BookingGame.find({festivalId}).populate('gameId').select('gameId');
-        return await BookingGame.find({festivalId});
+        return await BookingGame.find({festivalId}).populate('gameId').select('gameId');
     } catch (error) {
         console.log(error);
         throw error;
@@ -20,11 +19,11 @@ const getAllBookingGameByFestival = async(festivalId) => {
 };
 
 const createBookingGame = async (gameId,festivalId,exhibitorId,bookingId,zone,qtExhib,qtSend,tombola,dotation,dateAdd,comment,putOnPlan,
-    bringByExhibitor,received,place,isCallback,callbackPrice,isCallbackDone) => {
+    bringByExhibitor,received,isCallback,callbackPrice,isCallbackDone) => {
     try {
         const bookingGame = new BookingGame({
             gameId,festivalId,exhibitorId,bookingId,zone,qtExhib,qtSend,tombola,dotation,dateAdd,comment,putOnPlan,
-            bringByExhibitor,received,place,isCallback,callbackPrice,isCallbackDone
+            bringByExhibitor,received,isCallback,callbackPrice,isCallbackDone
         });
         console.log(bookingGame);
         return await bookingGame.save();
