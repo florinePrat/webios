@@ -11,37 +11,50 @@ const getExhibitorById = async(_id) => {
 
 const getAllExhibitor = async() => {
     try {
-        const a = await Exhibitor.find().populate('suiviId').populate('mainContact').populate('contacts').populate('booking').populate('gameList').populate('gameBookedList');
-        let tableaufiltre = []
-        console.log("VOICI" + a[0].suiviId.statusTraking)
-        console.log(a.length)
-        for(let i = 0; i < a.length; i++){
-            const statut = a[i].suiviId.statusTraking
+        const ExhibitorsR = await Exhibitor.find().populate('suiviId').populate('mainContact').populate('contacts').populate('booking').populate('gameList').populate('gameBookedList');
+        
+        let tableaufiltre = new Array(7)
+        let tableauFinal = []
+        for (i=0; i < tableaufiltre.length; i++){
+            tableaufiltre[i] = new Array()
+        }
+
+        for(let i = 0; i < ExhibitorsR.length; i++){
+            const statut = ExhibitorsR[i].suiviId.statusTraking
             switch (statut) {
-                case 'pas de réponse':
-                    tableaufiltre.push([0,a[i]])
-                  break;
                 case 'en discussion':
-                    tableaufiltre.push([1,a[i]])
+                    tableaufiltre[0].push(ExhibitorsR[i])
                   break;
-                case 'present':
-                    tableaufiltre.push([2,a[i]])
-                  break;
-                case 'absent':
-                    tableaufiltre.push([3,a[i]])
-                  break;
-                case 'jeux demandés':
-                    tableaufiltre.push([4,a[i]])
+                case 'liste de jeux demandée':
+                    tableaufiltre[1].push(ExhibitorsR[i])
                   break;
                 case 'jeux reçus':
-                    tableaufiltre.push([5,a[i]])
+                    tableaufiltre[2].push(ExhibitorsR[i])
+                  break;
+                case 'pas de réponse':
+                    tableaufiltre[3].push(ExhibitorsR[i])
+                  break;
+                case 'present':
+                    tableaufiltre[4].push(ExhibitorsR[i])
+                  break;
+                case 'absent':
+                    tableaufiltre[5].push(ExhibitorsR[i])
                   break;
                 default:
-                    tableaufiltre.push([6,a[i]])
-        }
-    }
-    console.log(tableaufiltre[0][2])
+                    tableaufiltre[6].push(ExhibitorsR[i])
+                }
+            }
 
+        //console.log(tableaufiltre)
+        let k = 0;
+        for (i=0; i < tableaufiltre.length; i++){
+            for(j=0; j < tableaufiltre[i].length; j++){
+                tableauFinal[k] = tableaufiltre[i][j]
+                k++
+            }
+        }
+        console.log(tableauFinal)
+        //return tableauFinal;
         return await Exhibitor.find().populate('suiviId').populate('mainContact').populate('contacts').populate('booking').populate('gameList').populate('gameBookedList');
     } catch (error) {
         console.log(error);
