@@ -3,7 +3,7 @@ const suiviController = require('../../../controllers/suiviController');
 module.exports = async (req, res) => {
     try{
         const informations = {...req.body};
-        const suivi = await suiviController.updatesuivi(informations, informations.suiviId);
+        const suivi = await suiviController.updateSuivi(informations, informations.suiviId);
         return res.status(200).json(suivi);
     }
     catch(e){
