@@ -11,6 +11,37 @@ const getExhibitorById = async(_id) => {
 
 const getAllExhibitor = async() => {
     try {
+        const a = await Exhibitor.find().populate('suiviId').populate('mainContact').populate('contacts').populate('booking').populate('gameList').populate('gameBookedList');
+        let tableaufiltre = []
+        console.log("VOICI" + a[0].suiviId.statusTraking)
+        console.log(a.length)
+        for(let i = 0; i < a.length; i++){
+            const statut = a[i].suiviId.statusTraking
+            switch (statut) {
+                case 'pas de réponse':
+                    tableaufiltre.push([0,a[i]])
+                  break;
+                case 'en discussion':
+                    tableaufiltre.push([1,a[i]])
+                  break;
+                case 'present':
+                    tableaufiltre.push([2,a[i]])
+                  break;
+                case 'absent':
+                    tableaufiltre.push([3,a[i]])
+                  break;
+                case 'jeux demandés':
+                    tableaufiltre.push([4,a[i]])
+                  break;
+                case 'jeux reçus':
+                    tableaufiltre.push([5,a[i]])
+                  break;
+                default:
+                    tableaufiltre.push([6,a[i]])
+        }
+    }
+    console.log(tableaufiltre[0][2])
+
         return await Exhibitor.find().populate('suiviId').populate('mainContact').populate('contacts').populate('booking').populate('gameList').populate('gameBookedList');
     } catch (error) {
         console.log(error);
