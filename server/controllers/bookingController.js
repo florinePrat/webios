@@ -24,7 +24,7 @@ const createBooking = async (nbTableSpace1,nbTableSpace2,nbTableSpace3,nbM2Space
 const getAllBookingByFestival = async(festivalId) => {
     try {
         // return await BookingGame.find({festivalId}).populate('gameId').select('gameId');
-        return await Booking.find({festivalId}).populate('exhibitorId');
+        return await Booking.find({festivalId}).populate('exhibitorId').populate({path : 'festivalId', populate: 'space'});;
     } catch (error) {
         console.log(error);
         throw error;
