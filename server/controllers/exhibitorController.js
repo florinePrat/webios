@@ -22,19 +22,19 @@ const getAllExhibitor = async() => {
         for(let i = 0; i < ExhibitorsR.length; i++){
             const statut = ExhibitorsR[i].suiviId.statusTraking
             switch (statut) {
-                case 'en discussion':
+                case 'pas de réponse':
                     tableaufiltre[0].push(ExhibitorsR[i])
                   break;
-                case 'liste de jeux demandée':
+                case 'en discussion':
                     tableaufiltre[1].push(ExhibitorsR[i])
                   break;
-                case 'liste de jeux reçue':
+                case 'présent':
                     tableaufiltre[2].push(ExhibitorsR[i])
                   break;
-                case 'pas de réponse':
+                case 'liste de jeux demandée':
                     tableaufiltre[3].push(ExhibitorsR[i])
                   break;
-                case 'présent':
+                case 'liste de jeux reçue':
                     tableaufiltre[4].push(ExhibitorsR[i])
                   break;
                 case 'absent':

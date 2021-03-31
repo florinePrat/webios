@@ -42,19 +42,19 @@ const getExhibitorsByFestivalId = async(festivalId) => {
         for(let i = 0; i < FestivalR.exhibitors.length; i++){
             const statut = FestivalR.exhibitors[i].suiviId.statusTraking
             switch (statut) {
-                case 'en discussion':
+                case 'pas de réponse':
                     tableaufiltre[0].push(FestivalR.exhibitors[i])
                   break;
-                case 'liste de jeux demandée':
+                case 'en discussion':
                     tableaufiltre[1].push(FestivalR.exhibitors[i])
                   break;
-                case 'liste de jeux reçue':
+                case 'présent':
                     tableaufiltre[2].push(FestivalR.exhibitors[i])
                   break;
-                case 'pas de réponse':
+                case 'liste de jeux demandée':
                     tableaufiltre[3].push(FestivalR.exhibitors[i])
                   break;
-                case 'présent':
+                case 'liste de jeux reçue':
                     tableaufiltre[4].push(FestivalR.exhibitors[i])
                   break;
                 case 'absent':
