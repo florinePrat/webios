@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 
 // testés et validés
-router.put('/update', require("./updateGameBooking"));
 router.post('/add', require("./addGameBooking"));
 router.delete('/delete', require("./deleteGameBooking"));
 router.get('/getByFestival', require("./getGameBookingsByFestival"));
