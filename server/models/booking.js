@@ -7,6 +7,7 @@ const bookingSchema = mongoose.Schema({
     nbM2Space1: {type : Number},
     nbM2Space2: {type : Number},
     nbM2Space3: {type : Number},
+    totalPrice: {type : Number},
     animatorNeeded : {type : Boolean},
     crSended : {type : Boolean},
     invoiceSended : {type : Boolean},
