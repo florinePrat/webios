@@ -73,11 +73,15 @@ const getExhibitorsByFestivalId = async(festivalId) => {
                 k++
             }
         }
-        console.log(tableauFinal)
-        return tableauFinal;
+        //console.log(tableauFinal)
+
+        FestivalR.exhibitors = tableauFinal
+        //console.log(FestivalR.exhibitors)
+
+        //return tableauFinal;
 
         //console.log(FestivalR.exhibitors)
-        //return FestivalR
+        return FestivalR
     } catch (error) {
         console.log(error);
         throw error;
