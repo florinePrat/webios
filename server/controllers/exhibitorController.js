@@ -28,13 +28,13 @@ const getAllExhibitor = async() => {
                 case 'liste de jeux demandée':
                     tableaufiltre[1].push(ExhibitorsR[i])
                   break;
-                case 'jeux reçus':
+                case 'liste de jeux reçue':
                     tableaufiltre[2].push(ExhibitorsR[i])
                   break;
                 case 'pas de réponse':
                     tableaufiltre[3].push(ExhibitorsR[i])
                   break;
-                case 'present':
+                case 'présent':
                     tableaufiltre[4].push(ExhibitorsR[i])
                   break;
                 case 'absent':
