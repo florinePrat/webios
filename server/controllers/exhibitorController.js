@@ -54,8 +54,8 @@ const getAllExhibitor = async() => {
             }
         }
         console.log(tableauFinal)
-        //return tableauFinal;
-        return await Exhibitor.find().populate('suiviId').populate('mainContact').populate('contacts').populate('booking').populate('gameList').populate('gameBookedList');
+        return tableauFinal;
+        //return await Exhibitor.find().populate('suiviId').populate('mainContact').populate('contacts').populate('booking').populate('gameList').populate('gameBookedList');
     } catch (error) {
         console.log(error);
         throw error;
