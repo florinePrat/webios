@@ -4,7 +4,7 @@ const SuiviController = require('../../../controllers/suiviController');
 
 module.exports = async (req, res) => {
     try{
-        const booking = await BookingController.createBooking(req.body.nbTableSpace1, req.body.nbTableSpace2, req.body.nbTableSpace3, req.body.nbM2Space1, req.body.nbM2Space2, req.body.nbM2Space3, req.body.totalPrice, req.body.animatorNeeded,false,false,false,false,req.body.exhibitorId, req.body.festivalId);
+        const booking = await BookingController.createBooking(req.body.nbTableSpace1, req.body.nbTableSpace2, req.body.nbTableSpace3, req.body.nbM2Space1, req.body.nbM2Space2, req.body.nbM2Space3, req.body.animatorNeeded,false,false,false,false,req.body.exhibitorId, req.body.festivalId);
         console.log({booking});
         const suivi = await SuiviController.getSuiviByFestivalAndexhibitorId(req.body.festivalId, req.body.exhibitorId);
         console.log({suivi});
