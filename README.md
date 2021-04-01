@@ -1,4 +1,4 @@
-# seo_front
+# FJM - backend
 
 ## Project setup
 ```
