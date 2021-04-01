@@ -12,6 +12,8 @@ const getExhibitorById = async(_id) => {
 const getAllExhibitor = async() => {
     try {
         const ExhibitorsR = await Exhibitor.find().populate('suiviId').populate('mainContact').populate('contacts').populate('booking').populate('gameList').populate('gameBookedList');
+
+
         
         let tableaufiltre = new Array(7)
         let tableauFinal = []
